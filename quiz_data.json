@@ -28,15 +28,15 @@
   {
     "id": 3,
     "category": "SQL",
-    "question": "다음 SQL 중 데이터를 수정하는 DML(Data Manipulation Language) 명령어가 아닌 것은?",
+    "question": "다음 SQL 중 DDL(Data Definition Language) 명령어는?",
     "options": [
-      "UPDATE",
-      "DELETE",
+      "SELECT",
+      "INSERT",
       "ALTER",
-      "INSERT"
+      "UPDATE"
     ],
     "answer": 2,
-    "explanation": "ALTER는 테이블 구조(스키마)를 변경하는 DDL(Data Definition Language) 명령어입니다. DML은 데이터를 조작하는 SELECT, INSERT, UPDATE, DELETE가 해당됩니다."
+    "explanation": "ALTER는 테이블 구조(스키마)를 변경하는 DDL 명령어입니다. SELECT, INSERT, UPDATE, DELETE는 데이터를 조작하는 DML 명령어에 해당합니다."
   },
   {
     "id": 4,
@@ -49,10 +49,23 @@
       "FILTER"
     ],
     "answer": 1,
-    "explanation": "DISTINCT 키워드를 SELECT 뒤에 붙이면 중복된 행을 제거하고 고유한 행만 반환합니다. 예: SELECT DISTINCT department FROM employees;"
+    "explanation": "DISTINCT 키워드를 SELECT 뒤에 붙이면 중복된 행을 제거하고 고유한 행만 반환합니다. SQL의 테이블은 이론상 중복을 허용하는 다중 집합(multiset)이므로 DISTINCT를 통해 집합처럼 만들 수 있습니다."
   },
   {
     "id": 5,
+    "category": "SQL",
+    "question": "GROUP BY와 HAVING에 대한 설명으로 옳은 것은?",
+    "options": [
+      "HAVING은 GROUP BY 없이도 단독으로 사용할 수 있다",
+      "WHERE은 그룹화 이후 조건을 적용하고, HAVING은 그룹화 이전에 적용한다",
+      "HAVING은 GROUP BY로 만들어진 그룹에 조건을 적용한다",
+      "GROUP BY 결과에서 집계함수는 사용할 수 없다"
+    ],
+    "answer": 2,
+    "explanation": "HAVING은 GROUP BY로 그룹화된 결과에 조건을 적용합니다. WHERE은 그룹화 이전 개별 행에 조건을 적용하고, HAVING은 그룹화 이후 집계 결과에 조건을 적용합니다."
+  },
+  {
+    "id": 6,
     "category": "SQL",
     "question": "INNER JOIN과 LEFT OUTER JOIN의 차이로 올바른 것은?",
     "options": [
@@ -65,7 +78,33 @@
     "explanation": "INNER JOIN은 양쪽 테이블 모두에서 조인 조건이 일치하는 행만 반환합니다. LEFT JOIN은 왼쪽 테이블의 모든 행을 반환하고, 오른쪽에 매칭이 없으면 NULL로 채웁니다."
   },
   {
-    "id": 6,
+    "id": 7,
+    "category": "SQL",
+    "question": "다음 SQL에서 NULL 값을 검색하는 올바른 방법은?",
+    "options": [
+      "WHERE Dept = NULL",
+      "WHERE Dept IS NULL",
+      "WHERE Dept == NULL",
+      "WHERE NULL(Dept)"
+    ],
+    "answer": 1,
+    "explanation": "NULL 값 비교는 반드시 'IS NULL' 또는 'IS NOT NULL' 형식을 사용해야 합니다. 'Dept = NULL'은 SQL에서 불법이며 항상 거짓으로 처리됩니다. NULL은 비교 연산자(=, !=)로 비교할 수 없습니다."
+  },
+  {
+    "id": 8,
+    "category": "SQL",
+    "question": "SQL의 뷰(View)에 대한 설명으로 올바르지 않은 것은?",
+    "options": [
+      "뷰는 기본 테이블로부터 유도되는 가상 테이블이다",
+      "뷰의 정의는 카탈로그에 SELECT-FROM-WHERE 형태로 저장된다",
+      "뷰는 물리적으로 데이터를 저장하지 않는다",
+      "뷰는 한 번 정의하면 이후에 자유롭게 변경할 수 있다"
+    ],
+    "answer": 3,
+    "explanation": "뷰는 정의를 변경할 수 없다는 단점이 있습니다. 뷰를 수정하려면 DROP VIEW 후 다시 CREATE VIEW 해야 합니다. 또한 조인 뷰, 집계 함수를 사용한 뷰 등은 삽입·삭제·갱신이 제한됩니다."
+  },
+  {
+    "id": 9,
     "category": "정규화",
     "question": "제1정규형(1NF)의 조건으로 올바른 것은?",
     "options": [
@@ -78,7 +117,7 @@
     "explanation": "1NF는 모든 컬럼의 값이 원자값(더 이상 분해할 수 없는 단일 값)이어야 합니다. 완전 함수 종속은 2NF, 이행적 종속 제거는 3NF, 다치 종속 제거는 4NF 조건입니다."
   },
   {
-    "id": 7,
+    "id": 10,
     "category": "정규화",
     "question": "이행적 함수 종속(Transitive Dependency)을 제거하는 정규형은?",
     "options": [
@@ -91,7 +130,7 @@
     "explanation": "3NF는 기본키가 아닌 속성이 다른 비기본키 속성에 의존하는 이행적 함수 종속을 제거합니다. 예: A→B→C 관계에서 A→C 종속을 별도 테이블로 분리합니다."
   },
   {
-    "id": 8,
+    "id": 11,
     "category": "트랜잭션",
     "question": "트랜잭션의 ACID 속성 중 '원자성(Atomicity)'의 의미는?",
     "options": [
@@ -104,7 +143,7 @@
     "explanation": "원자성(Atomicity)은 트랜잭션을 구성하는 모든 연산이 '전부 성공(COMMIT)' 또는 '전부 실패(ROLLBACK)'되어야 함을 의미합니다. 부분적으로만 반영되는 상태는 허용되지 않습니다."
   },
   {
-    "id": 9,
+    "id": 12,
     "category": "트랜잭션",
     "question": "다음 중 트랜잭션 격리 수준(Isolation Level)이 가장 높은 것은?",
     "options": [
@@ -117,7 +156,7 @@
     "explanation": "격리 수준은 낮은 순서로 READ UNCOMMITTED → READ COMMITTED → REPEATABLE READ → SERIALIZABLE입니다. SERIALIZABLE이 가장 높은 격리 수준으로, 완전한 직렬성을 보장하지만 성능이 가장 낮습니다."
   },
   {
-    "id": 10,
+    "id": 13,
     "category": "인덱스",
     "question": "데이터베이스 인덱스(Index)에 대한 설명으로 올바르지 않은 것은?",
     "options": [
@@ -128,5 +167,70 @@
     ],
     "answer": 2,
     "explanation": "인덱스는 검색 속도를 높이지만, 데이터 변경(INSERT/UPDATE/DELETE) 시 인덱스도 갱신해야 하므로 오히려 성능이 저하됩니다. 카디널리티가 낮은 컬럼에 인덱스를 걸면 효과가 없으며, 무분별한 인덱스 적용은 오히려 해롭습니다."
+  },
+  {
+    "id": 14,
+    "category": "관계대수",
+    "question": "관계 대수(Relational Algebra)에서 실렉트(SELECT, σ) 연산의 결과는?",
+    "options": [
+      "릴레이션의 수직적 부분집합 (특정 열만 추출)",
+      "릴레이션의 수평적 부분집합 (조건을 만족하는 행만 추출)",
+      "두 릴레이션의 합집합",
+      "두 릴레이션의 카티션 프로덕트"
+    ],
+    "answer": 1,
+    "explanation": "실렉트(σ)는 조건을 만족하는 투플(행)을 선택하는 연산으로 릴레이션의 수평적 부분집합(horizontal subset)을 반환합니다. 반면 프로젝트(Π)는 특정 속성(열)을 추출하는 수직적 부분집합(vertical subset)을 반환합니다."
+  },
+  {
+    "id": 15,
+    "category": "관계대수",
+    "question": "관계 대수에서 자연 조인(Natural Join)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "두 릴레이션의 모든 속성을 결합하며 중복 속성을 그대로 유지한다",
+      "동일 조인(Equi-Join) 결과에서 중복되는 속성을 제거한 결과이다",
+      "K값이 같은 투플끼리 결합하되, 매칭 안 되는 투플도 NULL로 포함한다",
+      "조인 조건을 명시적으로 지정해야 한다"
+    ],
+    "answer": 1,
+    "explanation": "자연 조인(Natural Join)은 동일 조인(Equi-Join)의 결과에서 중복되는 조인 속성을 제거한 것입니다. 일반적으로 '조인'이라 하면 자연 조인을 의미합니다."
+  },
+  {
+    "id": 16,
+    "category": "관계대수",
+    "question": "관계 대수의 기본 연산(Primitive Operations)에 해당하지 않는 것은?",
+    "options": [
+      "합집합 (∪)",
+      "차집합 (-)",
+      "교집합 (∩)",
+      "프로젝트 (Π)"
+    ],
+    "answer": 2,
+    "explanation": "교집합(∩)은 기본 연산이 아닌 복합 연산입니다. R∩S = R-(R-S)로 차집합을 이용해 표현할 수 있습니다. 기본 연산은 ∪, -, ×, σ, Π 이며, 교집합·조인·디비전은 기본 연산의 조합으로 표현 가능한 복합 연산입니다."
+  },
+  {
+    "id": 17,
+    "category": "관계대수",
+    "question": "디비전(Division, ÷) 연산에 대한 설명으로 옳은 것은?",
+    "options": [
+      "두 릴레이션의 모든 투플을 결합하는 연산이다",
+      "S의 모든 투플과 쌍을 이루는 R의 투플을 반환하는 연산이다",
+      "두 릴레이션에서 공통된 투플만 반환하는 연산이다",
+      "한 릴레이션에서 다른 릴레이션의 투플을 제외하는 연산이다"
+    ],
+    "answer": 1,
+    "explanation": "R÷S는 S의 모든 투플과 결합될 수 있는 R의 투플을 반환합니다. 예를 들어 '모든 과목을 수강한 학생'을 찾을 때 유용합니다. ((R÷S)×S) ⊆ R 관계가 성립합니다."
+  },
+  {
+    "id": 18,
+    "category": "관계대수",
+    "question": "외부 조인(Outer Join)이 자연 조인(Natural Join)과 다른 점은?",
+    "options": [
+      "외부 조인은 조인 조건이 일치하는 투플만 결과에 포함한다",
+      "외부 조인은 매칭되지 않는 투플도 NULL로 채워 결과에 포함한다",
+      "외부 조인은 중복 속성을 자동으로 제거한다",
+      "외부 조인은 기본 연산에 해당한다"
+    ],
+    "answer": 1,
+    "explanation": "외부 조인(Outer Join)은 한 릴레이션에 있는 투플이 상대 릴레이션에 대응되는 투플이 없을 경우, 상대를 NULL 투플로 만들어 결과에 포함합니다. 누락 정보(missing information)를 처리하기 위한 조인의 확장입니다."
   }
 ]
