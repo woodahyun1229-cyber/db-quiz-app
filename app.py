@@ -8,7 +8,7 @@ from pathlib import Path
 # ─────────────────────────────────────────────
 st.set_page_config(
     page_title="데이터베이스 퀴즈 앱",
-    page_icon="🧠",
+    page_icon="🗄️",
     layout="centered",
     initial_sidebar_state="auto",
 )
@@ -115,9 +115,9 @@ st.markdown("""
 # ─────────────────────────────────────────────
 st.markdown("""
 <div class="student-info">
-  <h2>🧠 데이터마이닝 퀴즈 앱</h2>
-  <b>학번:</b> 2024XXXXXXX &nbsp;|&nbsp; <b>이름:</b> 홍길동<br>
-  <span style="font-size:13px; opacity:0.85;">Data Mining Quiz — 데이터 전처리 · 연관규칙 · 클러스터링 · 의사결정나무 · 앙상블</span>
+  <h2>🗄️ 데이터베이스 퀴즈 앱</h2>
+  <b>학번:</b> 2024404094 &nbsp;|&nbsp; <b>이름:</b> 우다현<br>
+  <span style="font-size:13px; opacity:0.85;">Database Quiz — 관계형 DB · SQL · 정규화 · 트랜잭션 · 인덱스</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -286,7 +286,7 @@ def show_result():
 
     # 점수에 따른 등급/메시지
     if pct >= 90:
-        grade, msg, color = "🏆 S", "완벽합니다! 데이터마이닝 마스터!", "#fbbf24"
+        grade, msg, color = "🏆 S", "완벽합니다! 데이터베이스 마스터!", "#fbbf24"
     elif pct >= 70:
         grade, msg, color = "🥈 A", "훌륭해요! 핵심 개념을 잘 이해하고 있군요.", "#60a5fa"
     elif pct >= 50:
