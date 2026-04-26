@@ -117,7 +117,7 @@ st.markdown("""
 <div class="student-info">
   <h2>🗄️ 데이터베이스 퀴즈 앱</h2>
   <b>학번:</b> 2024404094 &nbsp;|&nbsp; <b>이름:</b> 우다현<br>
-  <span style="font-size:13px; opacity:0.85;">Database Quiz — 관계형 DB · SQL · 정규화 · 트랜잭션 · 인덱스</span>
+  <span style="font-size:13px; opacity:0.85;">Database Quiz — 관계형 DB · 관계대수 · SQL · 정규화 · 트랜잭션 · 인덱스</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -168,7 +168,7 @@ def show_login():
 # ─────────────────────────────────────────────
 def show_category_select():
     quiz_data = load_quiz_data()
-    category_order = ["관계형 데이터베이스", "관계대수", "SQL", "정규화", "트랜잭션", "인덱스"]
+    category_order = ["관계형 DB", "관계대수", "SQL", "정규화", "트랜잭션", "인덱스"]
     all_cats = set(q["category"] for q in quiz_data)
     categories = [c for c in category_order if c in all_cats] + sorted(all_cats - set(category_order))
 
