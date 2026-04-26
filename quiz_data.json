@@ -27,19 +27,58 @@
   },
   {
     "id": 3,
-    "category": "SQL",
-    "question": "다음 SQL 중 DDL(Data Definition Language) 명령어는?",
+    "category": "관계대수",
+    "question": "관계대수(Relational Algebra)에서 두 릴레이션의 공통 속성을 기준으로 튜플을 결합하는 연산은?",
     "options": [
-      "SELECT",
-      "INSERT",
-      "ALTER",
-      "UPDATE"
+      "합집합 (Union)",
+      "선택 (Selection)",
+      "자연 조인 (Natural Join)",
+      "투영 (Projection)"
     ],
     "answer": 2,
-    "explanation": "ALTER는 테이블 구조(스키마)를 변경하는 DDL 명령어입니다. SELECT, INSERT, UPDATE, DELETE는 데이터를 조작하는 DML 명령어에 해당합니다."
+    "explanation": "자연 조인(Natural Join)은 두 릴레이션에서 공통된 속성(컬럼)의 값이 같은 튜플끼리 결합하고, 중복 속성을 제거한 결과를 반환합니다."
   },
   {
     "id": 4,
+    "category": "관계대수",
+    "question": "관계대수의 순수 관계 연산자가 아닌 것은?",
+    "options": [
+      "선택 (σ, Selection)",
+      "투영 (π, Projection)",
+      "합집합 (∪, Union)",
+      "조인 (⋈, Join)"
+    ],
+    "answer": 2,
+    "explanation": "합집합(Union)은 집합 연산자입니다. 순수 관계 연산자는 선택(σ), 투영(π), 조인(⋈), 디비전(÷) 입니다. 집합 연산자(합집합·교집합·차집합·카티션 프로덕트)와 구분해야 합니다."
+  },
+  {
+    "id": 5,
+    "category": "관계대수",
+    "question": "관계대수에서 투영(Projection, π) 연산의 결과로 옳은 것은?",
+    "options": [
+      "조건을 만족하는 행(튜플)만 추출한다",
+      "두 릴레이션의 모든 튜플을 합친다",
+      "지정한 속성(컬럼)만 추출하고 중복 튜플을 제거한다",
+      "두 릴레이션의 공통 튜플만 반환한다"
+    ],
+    "answer": 2,
+    "explanation": "투영(π)은 릴레이션에서 원하는 속성(열)만 골라 반환하며, 결과에서 중복 튜플은 자동으로 제거됩니다. 행을 걸러내는 것은 선택(σ) 연산입니다."
+  },
+  {
+    "id": 6,
+    "category": "SQL",
+    "question": "다음 SQL 중 데이터를 수정하는 DML(Data Manipulation Language) 명령어가 아닌 것은?",
+    "options": [
+      "UPDATE",
+      "DELETE",
+      "ALTER",
+      "INSERT"
+    ],
+    "answer": 2,
+    "explanation": "ALTER는 테이블 구조(스키마)를 변경하는 DDL(Data Definition Language) 명령어입니다. DML은 데이터를 조작하는 SELECT, INSERT, UPDATE, DELETE가 해당됩니다."
+  },
+  {
+    "id": 7,
     "category": "SQL",
     "question": "SELECT 결과에서 중복된 행을 제거하려면 어떤 키워드를 사용해야 하는가?",
     "options": [
@@ -49,23 +88,10 @@
       "FILTER"
     ],
     "answer": 1,
-    "explanation": "DISTINCT 키워드를 SELECT 뒤에 붙이면 중복된 행을 제거하고 고유한 행만 반환합니다. SQL의 테이블은 이론상 중복을 허용하는 다중 집합(multiset)이므로 DISTINCT를 통해 집합처럼 만들 수 있습니다."
+    "explanation": "DISTINCT 키워드를 SELECT 뒤에 붙이면 중복된 행을 제거하고 고유한 행만 반환합니다. 예: SELECT DISTINCT department FROM employees;"
   },
   {
-    "id": 5,
-    "category": "SQL",
-    "question": "GROUP BY와 HAVING에 대한 설명으로 옳은 것은?",
-    "options": [
-      "HAVING은 GROUP BY 없이도 단독으로 사용할 수 있다",
-      "WHERE은 그룹화 이후 조건을 적용하고, HAVING은 그룹화 이전에 적용한다",
-      "HAVING은 GROUP BY로 만들어진 그룹에 조건을 적용한다",
-      "GROUP BY 결과에서 집계함수는 사용할 수 없다"
-    ],
-    "answer": 2,
-    "explanation": "HAVING은 GROUP BY로 그룹화된 결과에 조건을 적용합니다. WHERE은 그룹화 이전 개별 행에 조건을 적용하고, HAVING은 그룹화 이후 집계 결과에 조건을 적용합니다."
-  },
-  {
-    "id": 6,
+    "id": 8,
     "category": "SQL",
     "question": "INNER JOIN과 LEFT OUTER JOIN의 차이로 올바른 것은?",
     "options": [
@@ -76,32 +102,6 @@
     ],
     "answer": 2,
     "explanation": "INNER JOIN은 양쪽 테이블 모두에서 조인 조건이 일치하는 행만 반환합니다. LEFT JOIN은 왼쪽 테이블의 모든 행을 반환하고, 오른쪽에 매칭이 없으면 NULL로 채웁니다."
-  },
-  {
-    "id": 7,
-    "category": "SQL",
-    "question": "다음 SQL에서 NULL 값을 검색하는 올바른 방법은?",
-    "options": [
-      "WHERE Dept = NULL",
-      "WHERE Dept IS NULL",
-      "WHERE Dept == NULL",
-      "WHERE NULL(Dept)"
-    ],
-    "answer": 1,
-    "explanation": "NULL 값 비교는 반드시 'IS NULL' 또는 'IS NOT NULL' 형식을 사용해야 합니다. 'Dept = NULL'은 SQL에서 불법이며 항상 거짓으로 처리됩니다. NULL은 비교 연산자(=, !=)로 비교할 수 없습니다."
-  },
-  {
-    "id": 8,
-    "category": "SQL",
-    "question": "SQL의 뷰(View)에 대한 설명으로 올바르지 않은 것은?",
-    "options": [
-      "뷰는 기본 테이블로부터 유도되는 가상 테이블이다",
-      "뷰의 정의는 카탈로그에 SELECT-FROM-WHERE 형태로 저장된다",
-      "뷰는 물리적으로 데이터를 저장하지 않는다",
-      "뷰는 한 번 정의하면 이후에 자유롭게 변경할 수 있다"
-    ],
-    "answer": 3,
-    "explanation": "뷰는 정의를 변경할 수 없다는 단점이 있습니다. 뷰를 수정하려면 DROP VIEW 후 다시 CREATE VIEW 해야 합니다. 또한 조인 뷰, 집계 함수를 사용한 뷰 등은 삽입·삭제·갱신이 제한됩니다."
   },
   {
     "id": 9,
@@ -170,67 +170,15 @@
   },
   {
     "id": 14,
-    "category": "관계대수",
-    "question": "관계 대수(Relational Algebra)에서 실렉트(SELECT, σ) 연산의 결과는?",
+    "category": "인덱스",
+    "question": "클러스터형 인덱스(Clustered Index)와 비클러스터형 인덱스(Non-Clustered Index)의 차이로 옳은 것은?",
     "options": [
-      "릴레이션의 수직적 부분집합 (특정 열만 추출)",
-      "릴레이션의 수평적 부분집합 (조건을 만족하는 행만 추출)",
-      "두 릴레이션의 합집합",
-      "두 릴레이션의 카티션 프로덕트"
+      "클러스터형 인덱스는 테이블당 여러 개 생성할 수 있다",
+      "클러스터형 인덱스는 실제 데이터 행의 물리적 순서를 인덱스 순서와 일치시킨다",
+      "비클러스터형 인덱스는 데이터 파일 자체를 정렬한다",
+      "비클러스터형 인덱스는 테이블당 하나만 생성할 수 있다"
     ],
     "answer": 1,
-    "explanation": "실렉트(σ)는 조건을 만족하는 투플(행)을 선택하는 연산으로 릴레이션의 수평적 부분집합(horizontal subset)을 반환합니다. 반면 프로젝트(Π)는 특정 속성(열)을 추출하는 수직적 부분집합(vertical subset)을 반환합니다."
-  },
-  {
-    "id": 15,
-    "category": "관계대수",
-    "question": "관계 대수에서 자연 조인(Natural Join)에 대한 설명으로 옳은 것은?",
-    "options": [
-      "두 릴레이션의 모든 속성을 결합하며 중복 속성을 그대로 유지한다",
-      "동일 조인(Equi-Join) 결과에서 중복되는 속성을 제거한 결과이다",
-      "K값이 같은 투플끼리 결합하되, 매칭 안 되는 투플도 NULL로 포함한다",
-      "조인 조건을 명시적으로 지정해야 한다"
-    ],
-    "answer": 1,
-    "explanation": "자연 조인(Natural Join)은 동일 조인(Equi-Join)의 결과에서 중복되는 조인 속성을 제거한 것입니다. 일반적으로 '조인'이라 하면 자연 조인을 의미합니다."
-  },
-  {
-    "id": 16,
-    "category": "관계대수",
-    "question": "관계 대수의 기본 연산(Primitive Operations)에 해당하지 않는 것은?",
-    "options": [
-      "합집합 (∪)",
-      "차집합 (-)",
-      "교집합 (∩)",
-      "프로젝트 (Π)"
-    ],
-    "answer": 2,
-    "explanation": "교집합(∩)은 기본 연산이 아닌 복합 연산입니다. R∩S = R-(R-S)로 차집합을 이용해 표현할 수 있습니다. 기본 연산은 ∪, -, ×, σ, Π 이며, 교집합·조인·디비전은 기본 연산의 조합으로 표현 가능한 복합 연산입니다."
-  },
-  {
-    "id": 17,
-    "category": "관계대수",
-    "question": "디비전(Division, ÷) 연산에 대한 설명으로 옳은 것은?",
-    "options": [
-      "두 릴레이션의 모든 투플을 결합하는 연산이다",
-      "S의 모든 투플과 쌍을 이루는 R의 투플을 반환하는 연산이다",
-      "두 릴레이션에서 공통된 투플만 반환하는 연산이다",
-      "한 릴레이션에서 다른 릴레이션의 투플을 제외하는 연산이다"
-    ],
-    "answer": 1,
-    "explanation": "R÷S는 S의 모든 투플과 결합될 수 있는 R의 투플을 반환합니다. 예를 들어 '모든 과목을 수강한 학생'을 찾을 때 유용합니다. ((R÷S)×S) ⊆ R 관계가 성립합니다."
-  },
-  {
-    "id": 18,
-    "category": "관계대수",
-    "question": "외부 조인(Outer Join)이 자연 조인(Natural Join)과 다른 점은?",
-    "options": [
-      "외부 조인은 조인 조건이 일치하는 투플만 결과에 포함한다",
-      "외부 조인은 매칭되지 않는 투플도 NULL로 채워 결과에 포함한다",
-      "외부 조인은 중복 속성을 자동으로 제거한다",
-      "외부 조인은 기본 연산에 해당한다"
-    ],
-    "answer": 1,
-    "explanation": "외부 조인(Outer Join)은 한 릴레이션에 있는 투플이 상대 릴레이션에 대응되는 투플이 없을 경우, 상대를 NULL 투플로 만들어 결과에 포함합니다. 누락 정보(missing information)를 처리하기 위한 조인의 확장입니다."
+    "explanation": "클러스터형 인덱스는 테이블의 실제 데이터가 인덱스 키 순서대로 물리적으로 저장되며, 테이블당 1개만 생성 가능합니다. 비클러스터형 인덱스는 데이터 위치를 가리키는 포인터를 별도로 가지며, 여러 개 생성할 수 있습니다."
   }
 ]
