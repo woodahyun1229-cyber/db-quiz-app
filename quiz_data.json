@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "category": "관계형 DB",
+    "question": "관계형 데이터베이스에서 기본키(Primary Key)의 특성으로 올바르지 않은 것은?",
+    "options": [
+      "테이블 내에서 각 행을 유일하게 식별한다",
+      "NULL 값을 가질 수 없다",
+      "하나의 테이블에 여러 개의 기본키를 설정할 수 있다",
+      "복합키(Composite Key) 형태로도 설정할 수 있다"
+    ],
+    "answer": 2,
+    "explanation": "기본키(Primary Key)는 테이블당 오직 하나만 설정할 수 있습니다. 단, 여러 컬럼을 묶어 하나의 복합 기본키를 만드는 것은 가능합니다."
+  },
+  {
+    "id": 2,
+    "category": "관계형 DB",
+    "question": "외래키(Foreign Key)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "반드시 참조하는 테이블의 기본키와 동일한 컬럼명을 사용해야 한다",
+      "다른 테이블의 기본키를 참조하여 테이블 간 관계를 정의한다",
+      "외래키는 NULL 값을 가질 수 없다",
+      "외래키가 설정된 컬럼의 값은 테이블 내에서 유일해야 한다"
+    ],
+    "answer": 1,
+    "explanation": "외래키는 다른 테이블의 기본키(또는 유일키)를 참조하여 테이블 간 참조 무결성을 보장합니다. 컬럼명이 달라도 되고, NULL을 허용하며, 값의 중복도 허용됩니다."
+  },
+  {
+    "id": 3,
+    "category": "관계대수",
+    "question": "관계대수(Relational Algebra)에서 두 릴레이션의 공통 속성을 기준으로 튜플을 결합하는 연산은?",
+    "options": [
+      "합집합 (Union)",
+      "선택 (Selection)",
+      "자연 조인 (Natural Join)",
+      "투영 (Projection)"
+    ],
+    "answer": 2,
+    "explanation": "자연 조인(Natural Join)은 두 릴레이션에서 공통된 속성(컬럼)의 값이 같은 튜플끼리 결합하고, 중복 속성을 제거한 결과를 반환합니다."
+  },
+  {
+    "id": 4,
+    "category": "관계대수",
+    "question": "관계대수의 순수 관계 연산자가 아닌 것은?",
+    "options": [
+      "선택 (σ, Selection)",
+      "투영 (π, Projection)",
+      "합집합 (∪, Union)",
+      "조인 (⋈, Join)"
+    ],
+    "answer": 2,
+    "explanation": "합집합(Union)은 집합 연산자입니다. 순수 관계 연산자는 선택(σ), 투영(π), 조인(⋈), 디비전(÷) 입니다. 집합 연산자(합집합·교집합·차집합·카티션 프로덕트)와 구분해야 합니다."
+  },
+  {
+    "id": 5,
+    "category": "관계대수",
+    "question": "관계대수에서 투영(Projection, π) 연산의 결과로 옳은 것은?",
+    "options": [
+      "조건을 만족하는 행(튜플)만 추출한다",
+      "두 릴레이션의 모든 튜플을 합친다",
+      "지정한 속성(컬럼)만 추출하고 중복 튜플을 제거한다",
+      "두 릴레이션의 공통 튜플만 반환한다"
+    ],
+    "answer": 2,
+    "explanation": "투영(π)은 릴레이션에서 원하는 속성(열)만 골라 반환하며, 결과에서 중복 튜플은 자동으로 제거됩니다. 행을 걸러내는 것은 선택(σ) 연산입니다."
+  },
+  {
+    "id": 6,
+    "category": "SQL",
+    "question": "다음 SQL 중 데이터를 수정하는 DML(Data Manipulation Language) 명령어가 아닌 것은?",
+    "options": [
+      "UPDATE",
+      "DELETE",
+      "ALTER",
+      "INSERT"
+    ],
+    "answer": 2,
+    "explanation": "ALTER는 테이블 구조(스키마)를 변경하는 DDL(Data Definition Language) 명령어입니다. DML은 데이터를 조작하는 SELECT, INSERT, UPDATE, DELETE가 해당됩니다."
+  },
+  {
+    "id": 7,
+    "category": "SQL",
+    "question": "SELECT 결과에서 중복된 행을 제거하려면 어떤 키워드를 사용해야 하는가?",
+    "options": [
+      "UNIQUE",
+      "DISTINCT",
+      "DIFFERENT",
+      "FILTER"
+    ],
+    "answer": 1,
+    "explanation": "DISTINCT 키워드를 SELECT 뒤에 붙이면 중복된 행을 제거하고 고유한 행만 반환합니다. 예: SELECT DISTINCT department FROM employees;"
+  },
+  {
+    "id": 8,
+    "category": "SQL",
+    "question": "INNER JOIN과 LEFT OUTER JOIN의 차이로 올바른 것은?",
+    "options": [
+      "INNER JOIN은 왼쪽 테이블의 모든 행을 반환하고, 매칭되지 않으면 NULL을 채운다",
+      "LEFT JOIN은 두 테이블 모두에 존재하는 행만 반환한다",
+      "INNER JOIN은 양쪽 테이블에서 조인 조건이 일치하는 행만 반환한다",
+      "LEFT JOIN과 INNER JOIN의 결과는 항상 동일하다"
+    ],
+    "answer": 2,
+    "explanation": "INNER JOIN은 양쪽 테이블 모두에서 조인 조건이 일치하는 행만 반환합니다. LEFT JOIN은 왼쪽 테이블의 모든 행을 반환하고, 오른쪽에 매칭이 없으면 NULL로 채웁니다."
+  },
+  {
+    "id": 9,
+    "category": "정규화",
+    "question": "제1정규형(1NF)의 조건으로 올바른 것은?",
+    "options": [
+      "모든 비기본 속성이 기본키에 완전 함수 종속되어야 한다",
+      "모든 속성의 도메인이 원자값(Atomic Value)만으로 구성되어야 한다",
+      "이행적 함수 종속이 존재하지 않아야 한다",
+      "다치 종속(Multi-valued Dependency)이 없어야 한다"
+    ],
+    "answer": 1,
+    "explanation": "1NF는 모든 컬럼의 값이 원자값(더 이상 분해할 수 없는 단일 값)이어야 합니다. 완전 함수 종속은 2NF, 이행적 종속 제거는 3NF, 다치 종속 제거는 4NF 조건입니다."
+  },
+  {
+    "id": 10,
+    "category": "정규화",
+    "question": "이행적 함수 종속(Transitive Dependency)을 제거하는 정규형은?",
+    "options": [
+      "제1정규형 (1NF)",
+      "제2정규형 (2NF)",
+      "제3정규형 (3NF)",
+      "BCNF"
+    ],
+    "answer": 2,
+    "explanation": "3NF는 기본키가 아닌 속성이 다른 비기본키 속성에 의존하는 이행적 함수 종속을 제거합니다. 예: A→B→C 관계에서 A→C 종속을 별도 테이블로 분리합니다."
+  },
+  {
+    "id": 11,
+    "category": "트랜잭션",
+    "question": "트랜잭션의 ACID 속성 중 '원자성(Atomicity)'의 의미는?",
+    "options": [
+      "트랜잭션이 완료되면 그 결과가 영구적으로 저장된다",
+      "트랜잭션 수행 중 다른 트랜잭션이 중간 결과를 볼 수 없다",
+      "트랜잭션의 모든 연산은 전부 실행되거나 전부 실행되지 않아야 한다",
+      "트랜잭션 수행 전후 데이터베이스는 일관된 상태를 유지해야 한다"
+    ],
+    "answer": 2,
+    "explanation": "원자성(Atomicity)은 트랜잭션을 구성하는 모든 연산이 '전부 성공(COMMIT)' 또는 '전부 실패(ROLLBACK)'되어야 함을 의미합니다. 부분적으로만 반영되는 상태는 허용되지 않습니다."
+  },
+  {
+    "id": 12,
+    "category": "트랜잭션",
+    "question": "다음 중 트랜잭션 격리 수준(Isolation Level)이 가장 높은 것은?",
+    "options": [
+      "READ UNCOMMITTED",
+      "READ COMMITTED",
+      "REPEATABLE READ",
+      "SERIALIZABLE"
+    ],
+    "answer": 3,
+    "explanation": "격리 수준은 낮은 순서로 READ UNCOMMITTED → READ COMMITTED → REPEATABLE READ → SERIALIZABLE입니다. SERIALIZABLE이 가장 높은 격리 수준으로, 완전한 직렬성을 보장하지만 성능이 가장 낮습니다."
+  },
+  {
+    "id": 13,
+    "category": "인덱스",
+    "question": "데이터베이스 인덱스(Index)에 대한 설명으로 올바르지 않은 것은?",
+    "options": [
+      "SELECT 쿼리의 검색 속도를 향상시킨다",
+      "인덱스를 추가할수록 INSERT, UPDATE, DELETE 성능이 저하될 수 있다",
+      "인덱스는 항상 쿼리 성능을 향상시키므로 모든 컬럼에 적용하는 것이 좋다",
+      "B-Tree 인덱스는 범위 검색에 효율적이다"
+    ],
+    "answer": 2,
+    "explanation": "인덱스는 검색 속도를 높이지만, 데이터 변경(INSERT/UPDATE/DELETE) 시 인덱스도 갱신해야 하므로 오히려 성능이 저하됩니다. 카디널리티가 낮은 컬럼에 인덱스를 걸면 효과가 없으며, 무분별한 인덱스 적용은 오히려 해롭습니다."
+  },
+  {
+    "id": 14,
+    "category": "인덱스",
+    "question": "클러스터형 인덱스(Clustered Index)와 비클러스터형 인덱스(Non-Clustered Index)의 차이로 옳은 것은?",
+    "options": [
+      "클러스터형 인덱스는 테이블당 여러 개 생성할 수 있다",
+      "클러스터형 인덱스는 실제 데이터 행의 물리적 순서를 인덱스 순서와 일치시킨다",
+      "비클러스터형 인덱스는 데이터 파일 자체를 정렬한다",
+      "비클러스터형 인덱스는 테이블당 하나만 생성할 수 있다"
+    ],
+    "answer": 1,
+    "explanation": "클러스터형 인덱스는 테이블의 실제 데이터가 인덱스 키 순서대로 물리적으로 저장되며, 테이블당 1개만 생성 가능합니다. 비클러스터형 인덱스는 데이터 위치를 가리키는 포인터를 별도로 가지며, 여러 개 생성할 수 있습니다."
+  }
+]
