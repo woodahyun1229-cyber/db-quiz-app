@@ -1,0 +1,8 @@
+{
+  "users": [
+    {"username": "admin", "password": "admin123", "display_name": "관리자"},
+    {"username": "student1", "password": "pass1234", "display_name": "학생1"},
+    {"username": "student2", "password": "pass5678", "display_name": "학생2"},
+    {"username": "test", "password": "test", "display_name": "테스트유저"}
+  ]
+}
