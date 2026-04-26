@@ -24,7 +24,7 @@ def load_quiz_data() -> list[dict]:
     @st.cache_data 덕분에 최초 1회만 파일 I/O가 발생하며,
     이후 실행에서는 메모리에 캐시된 결과를 즉시 반환합니다.
     """
-    path = Path(__file__).parent / "data" / "quiz_data.json"
+    path = Path(__file__).parent / "quiz_data.json"
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -35,7 +35,7 @@ def load_user_data() -> dict:
     사용자 계정 데이터를 JSON 파일에서 읽어 반환합니다.
     캐싱을 통해 로그인 시도마다 파일을 반복 읽는 비용을 제거합니다.
     """
-    path = Path(__file__).parent / "data" / "users.json"
+    path = Path(__file__).parent / "users.json"
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -117,7 +117,7 @@ st.markdown("""
 <div class="student-info">
   <h2>🗄️ 데이터베이스 퀴즈 앱</h2>
   <b>학번:</b> 2024404094 &nbsp;|&nbsp; <b>이름:</b> 우다현<br>
-  <span style="font-size:13px; opacity:0.85;">Database Quiz — 관계형 DB · SQL · 정규화 · 트랜잭션 · 인덱스</span>
+  <span style="font-size:13px; opacity:0.85;">Database Quiz — 관계형 DB · 관계대수 · SQL · 정규화 · 트랜잭션 · 인덱스</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -168,7 +168,9 @@ def show_login():
 # ─────────────────────────────────────────────
 def show_category_select():
     quiz_data = load_quiz_data()
-    categories = sorted(set(q["category"] for q in quiz_data))
+    category_order = ["관계형 DB", "관계대수", "SQL", "정규화", "트랜잭션", "인덱스"]
+    all_cats = set(q["category"] for q in quiz_data)
+    categories = [c for c in category_order if c in all_cats]
 
     st.subheader(f"👋 안녕하세요, {st.session_state.display_name}님!")
     st.markdown("퀴즈에 도전할 **카테고리**를 선택하세요.")
