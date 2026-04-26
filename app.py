@@ -83,8 +83,9 @@ st.markdown("""
         font-size: 20px;
     }
     .quiz-card {
-        background: #f8fafc;
-        border-left: 5px solid #2d6a9f;
+        background: #1e3a5f;
+        color: white;
+        border-left: 5px solid #60a5fa;
         padding: 20px;
         border-radius: 8px;
         margin-bottom: 16px;
