@@ -170,7 +170,7 @@ def show_category_select():
     quiz_data = load_quiz_data()
     category_order = ["관계형 DB", "관계대수", "SQL", "정규화", "트랜잭션", "인덱스"]
     all_cats = set(q["category"] for q in quiz_data)
-    categories = [c for c in category_order if c in all_cats] + sorted(all_cats - set(category_order))
+    categories = [c for c in category_order if c in all_cats]
 
     st.subheader(f"👋 안녕하세요, {st.session_state.display_name}님!")
     st.markdown("퀴즈에 도전할 **카테고리**를 선택하세요.")
