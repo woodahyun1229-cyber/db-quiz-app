@@ -7,7 +7,7 @@ from pathlib import Path
 # 페이지 설정
 # ─────────────────────────────────────────────
 st.set_page_config(
-    page_title="데이터마이닝 퀴즈 앱",
+    page_title="데이터베이스 퀴즈 앱",
     page_icon="🧠",
     layout="centered",
     initial_sidebar_state="auto",
